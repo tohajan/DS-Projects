@@ -4,6 +4,5 @@ The model uses linear regression anlaysis to predict depression scores among res
 
 The following items are contained in this folder:  
 **Depression_LinReg.Rmd**: this is the R notebook containing the R codes for the entire project, from data importing and cleaning to model 
-    buidling, including visualizations.
-    
--Depression_LinReg: this is a simple markdown version 
+    buidling, including visualizations.  
+**Depression_LinReg.md**: this is a simple, less sophisticated markdown version of the R notebook. 
