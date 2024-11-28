@@ -1,5 +1,5 @@
-This folder contains documents regarding a machine learning model using R.
-The machine learning model uses linear regression anlaysis to predict depression scores among respondents to the National Health and 
+This folder contains documents of a machine learning model project using R.  
+The model uses linear regression anlaysis to predict depression scores among respondents to the National Health and 
   Nutrition Examination Survey (NHANES), for the period 2017 to mid-March 2020.
 
 The following items are contained in this folder:  
