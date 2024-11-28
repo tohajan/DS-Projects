@@ -26,7 +26,7 @@ library(MASS)
 ## Exploratory Data Analysis
 ### Depression data
 ```{r}
-dep <- read_dta("C:/Users/tohaj/Desktop/DS-Projects/Linear Regression_Depression/data files/depression.dta")
+dep <- read_dta("C:/Users/tohaj/Desktop/DS-Projects/data files/depression.dta")
 ```
 
 ```{r}
@@ -74,7 +74,7 @@ head(depression)
 
 ### Demographics data
 ```{r}
-dem <- read_dta("C:/Users/tohaj/Desktop/DS-Projects/Linear Regression_Depression/data files/demographics.dta")
+dem <- read_dta("C:/Users/tohaj/Desktop/DS-Projects/data files/demographics.dta")
 head(dem)
 dim(dem)
 ```
@@ -188,7 +188,7 @@ head(demogr_final)
 ### Physical activity data
 
 ```{r}
-phys_act <- read_dta("C:/Users/tohaj/Desktop/DS-Projects/Linear Regression_Depression/data files/physical-activity.dta")
+phys_act <- read_dta("C:/Users/tohaj/Desktop/DS-Projects/data files/physical-activity.dta")
 ```
 
 
@@ -233,7 +233,7 @@ head(physAct)
 
 ### Alcohol use data
 ```{r}
-drink <- read_dta("C:/Users/tohaj/Desktop/DS-Projects/Linear Regression_Depression/data files/alcohol-use.dta")
+drink <- read_dta("C:/Users/tohaj/Desktop/DS-Projects/data files/alcohol-use.dta")
 
 head(drink)
 ```
@@ -257,7 +257,7 @@ drinking[drinking == 777 | drinking == 999] <- NA
 
 ### Cigarette use
 ```{r}
-smoking <- read_dta("C:/Users/tohaj/Desktop/DS-Projects/Linear Regression_Depression/data files/cigarette-use.dta")
+smoking <- read_dta("C:/Users/tohaj/Desktop/DS-Projects/data files/cigarette-use.dta")
 
 head(smoking)
 ```
@@ -293,7 +293,7 @@ head(cig_use)
 
 ### BMI
 ```{r}
-bmi <- read_xpt("C:/Users/tohaj/Desktop/DS-Projects/Linear Regression_Depression/data files/p_bmx.xpt")
+bmi <- read_xpt("C:/Users/tohaj/Desktop/DS-Projects/data files/p_bmx.xpt")
 
 head(bmi)
 ```
@@ -315,7 +315,7 @@ head(bmi_data)
 ### Sleep
 
 ```{r}
-sleep <- read_dta("C:/Users/tohaj/Desktop/DS-Projects/Linear Regression_Depression/data files/sleep-disorder.dta")
+sleep <- read_dta("C:/Users/tohaj/Desktop/DS-Projects/data files/sleep-disorder.dta")
 
 head(sleep)
 ```
