@@ -1,4 +1,4 @@
-This folder (named **Decision Tree_depression**) houses a machine learning model project using Python.  
+This folder (named **Decision Tree_Depression**) houses a machine learning model project using Python.  
 The model uses a **decision tree** classifier to predict history of depression, using data from the National Health Interview Survey (NHIS) for year 2022.
 
 The following items are contained in this folder:  
