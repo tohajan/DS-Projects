@@ -26,7 +26,7 @@ library(MASS)
 ## Exploratory Data Analysis
 ### Depression data
 ```{r}
-dep <- read_dta("G:/My Drive/Programming/Data Science/DATA SETS/NHANES/NHANES 2017-March 2020/depression.dta")
+dep <- read_dta("C:/Users/tohaj/Desktop/DS-Projects/Linear Regression_Depression/data files/depression.dta")
 ```
 
 ```{r}
@@ -74,7 +74,7 @@ head(depression)
 
 ### Demographics data
 ```{r}
-dem <- read_dta("G:/My Drive/Programming/Data Science/DATA SETS/NHANES/NHANES 2017-March 2020/demographics.dta")
+dem <- read_dta("C:/Users/tohaj/Desktop/DS-Projects/Linear Regression_Depression/data files/demographics.dta")
 head(dem)
 dim(dem)
 ```
@@ -188,7 +188,7 @@ head(demogr_final)
 ### Physical activity data
 
 ```{r}
-phys_act <- read_dta("G:/My Drive/Programming/Data Science/DATA SETS/NHANES/NHANES 2017-March 2020/physical-activity.dta")
+phys_act <- read_dta("C:/Users/tohaj/Desktop/DS-Projects/Linear Regression_Depression/data files/physical-activity.dta")
 ```
 
 
@@ -233,7 +233,7 @@ head(physAct)
 
 ### Alcohol use data
 ```{r}
-drink <- read_dta("G:/My Drive/Programming/Data Science/DATA SETS/NHANES/NHANES 2017-March 2020/alcohol-use.dta")
+drink <- read_dta("C:/Users/tohaj/Desktop/DS-Projects/Linear Regression_Depression/data files/alcohol-use.dta")
 
 head(drink)
 ```
@@ -257,7 +257,7 @@ drinking[drinking == 777 | drinking == 999] <- NA
 
 ### Cigarette use
 ```{r}
-smoking <- read_dta("G:/My Drive/Programming/Data Science/DATA SETS/NHANES/NHANES 2017-March 2020/cigarette-use.dta")
+smoking <- read_dta("C:/Users/tohaj/Desktop/DS-Projects/Linear Regression_Depression/data files/cigarette-use.dta")
 
 head(smoking)
 ```
@@ -293,7 +293,7 @@ head(cig_use)
 
 ### BMI
 ```{r}
-bmi <- read_xpt("G:/My Drive/Programming/Data Science/DATA SETS/NHANES/NHANES 2017-March 2020/p_bmx.xpt")
+bmi <- read_xpt("C:/Users/tohaj/Desktop/DS-Projects/Linear Regression_Depression/data files/p_bmx.xpt")
 
 head(bmi)
 ```
@@ -315,7 +315,7 @@ head(bmi_data)
 ### Sleep
 
 ```{r}
-sleep <- read_dta("G:/My Drive/Programming/Data Science/DATA SETS/NHANES/NHANES 2017-March 2020/sleep-disorder.dta")
+sleep <- read_dta("C:/Users/tohaj/Desktop/DS-Projects/Linear Regression_Depression/data files/sleep-disorder.dta")
 
 head(sleep)
 ```
@@ -540,7 +540,9 @@ some_columns
 rmse(ols_fitted_values, truth = dep_score, estimate = .fitted)
 ```
 
-RMSE is 4.00 (pretty high), it seems the model performed poorly. See more details on on model performance:
+RMSE is 4.00 (pretty high), model appears to perform poorly. 
+
+Obtain a visual on model performance:
 ```{r}
 ols_fitted_values %>%
   ggplot(aes(x = dep_score, y = .fitted)) +
@@ -552,7 +554,7 @@ ols_fitted_values %>%
 Try Boxcox transformation of the DV
 
 
-## Model B (Box-Cox transformed DV)
+## Model B (Box-Cox-transformed DV)
 ```{r}
 #apply the boxcox function
 #The function works only with positive values. Dv contains 0 values, so add a constant across:
@@ -583,10 +585,10 @@ nhanes_2017_Mar2020_nomissing$dep_boxcox <-
 ```
 
 
-## Model C (Log-transform DV)
+## Model C (Log-transformed DV)
 ```{r}
 nhanes_2017_Mar2020_nomissing$dep_log <- log(nhanes_2017_Mar2020_nomissing$dep_modified)
-nhanes_log <- nhanes_2017_Mar2020_nomissing[c(1,3:12,14)]
+nhanes_log <- nhanes_2017_Mar2020_nomissing[c(1,3:12,15)]
 names(nhanes_log)
 ```
 
@@ -675,7 +677,7 @@ log_workflow
 ```
 
 ```{r}
-#Now estimate the model parameters/constants using the training data, i.e., fit the model using the data
+#Now estimate the model parameters/constants using the training data
 logOLS_fit <- fit(log_workflow, data=train_nhanes_log)
 
 logOLS_fit
@@ -711,13 +713,7 @@ check
 rmse(LOGols_fitted_values, truth = dep_log, estimate = .fitted)
 ```
 
-RMSE is 0.85, much more lower than the initial value of 4.00 (from the model with raw DV). Model appears to have improved tremendously with log transformation:
-```{r}
-LOGols_fitted_values %>%
-  ggplot(aes(x = dep_log, y = .fitted)) +
-  geom_point() +
-  geom_smooth(method = "lm") +
-  labs( x = "True log of depression score)", y = "Predicted log of depression score")
-```
+RMSE is 0.85, much more lower than the initial value of 4.00 (from the model with raw DV). Model appears to have improved tremendously with log transformation
+
 
 
