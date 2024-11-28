@@ -1,0 +1,1 @@
+This folder contains datasets used in the data science/analysis projects. The datasets are of different version: csv, xpt, and dta. Each data is read imported to the individual project using the relevant functions for the file extension.
