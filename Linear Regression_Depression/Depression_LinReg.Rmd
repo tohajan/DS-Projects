@@ -298,7 +298,7 @@ bmi <- read_xpt("C:/Users/tohaj/Desktop/DS-Projects/data files/p_bmx.xpt")
 head(bmi)
 ```
 
-bmxbmi: bmi in kg/m2
+bmxbmi: body mass index in kg per meter-squared
 
 ```{r}
 #obtain the columns of interest
