@@ -86,7 +86,7 @@ demographics <- dem[, c("seqn", "riagendr", "ridageyr", "ridreth3",
 head(demographics)
 ```
 
-Demographics code book:  
+Demographics code book/dictionary:  
 riagendr (Sex): 1=male, 2=female  
 riadageyr (Age): 0-79; 80=80yrs and older
 ridreth3 (race/ethnicity): 1=Mex. American, 2=Other Hispanic, 3=NH White, 4=NH Black, 6=NH Asian, 7= Other race  
