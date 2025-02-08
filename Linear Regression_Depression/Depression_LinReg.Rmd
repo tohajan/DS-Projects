@@ -271,7 +271,7 @@ cig_use <- smoking[, c("seqn", "smq020")]
 names(cig_use)[names(cig_use) == "smq020"] <- "cig100"
 ```
 
-smq020: smoked at least 100 cigarettes in life
+smq020: captures whether respondent has ever smoked at least 100 cigarettes
 
 ```{r}
 #recode values as needed
