@@ -196,7 +196,7 @@ phys_act <- read_dta("C:/Users/tohaj/Desktop/DS-Projects/data files/physical-act
 head(phys_act)
 ```
 
-paq665 (engaged in any moderate-intensity sports, fitness, or recreational activities that cause a small increase in breathing or heart rate such as brisk walking, bicycling, swimming, or volleyball for at least 10 minutes continuously?): 1=yes, 2=no
+paq665 (this variable captures whether respondent engaged in any moderate-intensity sports, fitness, or recreational activities that cause a small increase in breathing or heart rate such as brisk walking, bicycling, swimming, or volleyball for at least 10 minutes continuously?): 1=yes, 2=no
 
 ```{r}
 #subset only the needed columns
