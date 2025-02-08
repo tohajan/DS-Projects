@@ -238,7 +238,7 @@ drink <- read_dta("C:/Users/tohaj/Desktop/DS-Projects/data files/alcohol-use.dta
 head(drink)
 ```
 
-alq130: Average # alcoholic drinks/day - past 12 mos
+alq130: Average number of alcoholic drinks per day in the past 12 mos
 
 ```{r}
 #obtain only the needed columns
