@@ -369,6 +369,7 @@ nhanes_2017_Mar2020 %>%
 ```
 
 ```{r}
+#Plot the distribution of missingness across variables
 vis_miss(nhanes_2017_Mar2020)
 ```
 
@@ -412,7 +413,7 @@ ggplot(nhanes_2017_Mar2020_nomissing, aes(sqrt(dep_score))) + geom_density() #sq
 ggplot(nhanes_2017_Mar2020_nomissing, aes(sqrt(sqrt(dep_score)))) + geom_density() #4th root transformation
 ```
 
-There is no notable improvement in the shape, even after log, square root, and 4th root transformations.  
+Results: There is no notable improvement in the curve shape (i.e., it doesn't move closer to normality), even after log, square root, and 4th root transformations.  
 
 Go ahead and build the model; run the assumption checks after.
 
@@ -421,21 +422,21 @@ Go ahead and build the model; run the assumption checks after.
 #### Split the data into training and test sets
 ```{r}
 set.seed(58)
-nhanes_split <- initial_split(nhanes_2017_Mar2020_nomissing, prop = 3/4) #75% for training set
+nhanes_split <- initial_split(nhanes_2017_Mar2020_nomissing, prop = 3/4) # Assign 75% of the data for training set
 
 nhanes_split # count of training vs. test vs total
 ```
 
 ```{r}
-train_nhanes <- training(nhanes_split)
-test_nhanes <- testing(nhanes_split)
+train_nhanes <- training(nhanes_split) #store training set
+test_nhanes <- testing(nhanes_split) #store test set
 ```
 
 
 ### Data preprocessing
 
 ```{r}
-names(train_nhanes)
+names(train_nhanes) #obtain the column/variable names in the training set
 ```
 
 
@@ -459,7 +460,7 @@ In the above output, <chr[3]> and <chr[2> denote character and numeric types, re
 #dummy recode categorical predictors
 dep_recipe <- dep_recipe %>%
   step_dummy(all_nominal_predictors(), one_hot = FALSE)
-#one_hot=FALSE: omits the first dummy variable (to serve as reference category) in each categorical predictor. In anticipation of this, the desired reference group was placed first when naming labels and levels (in the EDA section above).
+#one_hot=FALSE: omits the first dummy category (to serve as reference category) in each categorical predictor. In anticipation of this, the desired reference group was placed first when naming labels and levels (in the EDA section above).
 
 # Otherwise, one_hot=TRUE: omits no category, if no reference category is needed
 dep_recipe
@@ -521,6 +522,7 @@ head(ols_fitstats$fit$fitted.values)
 
 
 ```{r}
+#use the fitted model to predict the test set
 predict(ols_fit, new_data = test_nhanes)
 ```
 
@@ -557,7 +559,7 @@ Try Boxcox transformation of the DV
 ## Model B (Box-Cox-transformed DV)
 ```{r}
 #apply the boxcox function
-#The function works only with positive values. Dv contains 0 values, so add a constant across:
+#The function works only with positive values. Dv contains 0 values, so add a constant:
 nhanes_2017_Mar2020_nomissing["dep_modified"] <- nhanes_2017_Mar2020_nomissing$dep_score + 1
 # add 1 as a constant
 
